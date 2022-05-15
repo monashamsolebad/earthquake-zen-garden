@@ -1,3 +1,19 @@
 .navbar{
-    background-color:#777777;
+    background-color:#ededed;
+    padding: 8px;
+   }
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+}
+.logo{
+    width: 40px;
+    height: auto;
+}
+.navbar-title{
+    color: #777777;
+    font-size:30px;
+    font-weight: bold;
 }

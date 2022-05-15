@@ -10,7 +10,7 @@ module.exports = {
 
   target: "web",
   devServer: {
-    port: "3000",
+    port: "3001",
     static: ["./public"],
     open: true,
     hot: true,
@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["css-loader"],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

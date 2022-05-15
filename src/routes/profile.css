@@ -1,0 +1,23 @@
+.profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.profile-image{
+    width:200px;
+    height: auto;
+   }
+.bio
+   {
+       width: 248px;
+   }
+   .data-container{
+       display: flex;
+       justify-content: center;
+       flex-direction: row;
+       gap:8px ;
+   }
+   .data-container td{
+       padding-right: 16px;
+   }

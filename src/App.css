@@ -1,0 +1,12 @@
+body{
+    font-family: sans-serif;
+}
+ul{
+    padding: 0;
+}
+.text-center{
+    text-align: center;
+}
+.valign-top{
+    vertical-align: top;
+}
