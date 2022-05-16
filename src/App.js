@@ -17,7 +17,7 @@ export const App = () => {
         const jsonData = await data.json()
         setAppData(jsonData)
       } catch (e) {
-        console.log('error -->', e)
+        console.error(e)
       }
     }
 

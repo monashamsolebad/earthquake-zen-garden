@@ -32,13 +32,12 @@ const Home = () => {
   }
 
   const onKeyPressHandler = (field) => (e) => {
-    console.log('key code is', e.keyCode, e.key)
-
     if (e.keyCode === 0) {
       console.log('field is, lets sort by : ', field)
       toggleSort(field)
     }
   }
+
   const sortFeatures = (field, isAsc) => {
     const updatedSortData = { ...sortedData }
     updatedSortData?.features?.sort((a, b) => {
@@ -58,7 +57,9 @@ const Home = () => {
   }
   return (
     <div className={styles.home}>
-      <h3 className={styles.heading}>{sortedData?.metadata?.title}</h3>
+      <h3 data-testid="home-title" className={styles.heading}>
+        {sortedData?.metadata?.title}
+      </h3>
       <div>
         <table>
           <thead>

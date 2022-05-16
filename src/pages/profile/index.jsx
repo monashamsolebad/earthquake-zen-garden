@@ -15,6 +15,7 @@ const Profile = () => {
           <img
             className={styles.profileImage}
             src={profile?.avatarImage}
+            loading="lazy"
             alt="profile image"
           ></img>
         </div>
@@ -23,7 +24,7 @@ const Profile = () => {
             <tbody>
               <tr>
                 <td>First name</td>
-                <td>{profile?.firstName}</td>
+                <td data-testid="profile-firstName">{profile?.firstName}</td>
               </tr>
               <tr>
                 <td>Last name</td>

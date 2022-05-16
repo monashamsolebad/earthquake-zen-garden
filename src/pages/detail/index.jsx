@@ -7,6 +7,7 @@ const Detail = () => {
   const { id } = useParams()
   const context = useContext(EarthquakeContext)
   const { data } = context || {}
+
   useEffect(() => {
     const getFeatureById = (features, id) => {
       const feature = features.find((item) => {
@@ -18,11 +19,13 @@ const Detail = () => {
   }, [])
 
   if (!feature) {
-    return <div>Loading...</div>
+    return <div className={styles.notFound}>Item not found</div>
   }
   return (
     <div className={styles.detailContainer}>
-      <h3 className={styles.heading}>{feature?.properties?.title}</h3>
+      <h3 data-testid="detail-title" className={styles.heading}>
+        {feature?.properties?.title}
+      </h3>
       <div>
         <table>
           <tbody>

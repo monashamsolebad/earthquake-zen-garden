@@ -12,3 +12,9 @@
   margin-block-end: 16px;
   font-weight: bold;
 }
+.notFound {
+  text-align: center;
+  margin-top: 64px;
+  font-size: 36px;
+  font-weight: bold;
+}

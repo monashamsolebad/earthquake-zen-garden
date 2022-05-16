@@ -19,12 +19,16 @@ const Navbar = (props) => {
           </li>
         )}
         {title && (
-          <div className={styles.navbarTitle} tabIndex={-1}>
+          <li
+            data-testid="navbar-title"
+            className={styles.navbarTitle}
+            tabIndex={-1}
+          >
             {title}
-          </div>
+          </li>
         )}
         {firstName && (
-          <li>
+          <li data-testid="navbar-welcome">
             <Link to="/profile" tabIndex={2}>
               Welcome {firstName}
             </Link>
