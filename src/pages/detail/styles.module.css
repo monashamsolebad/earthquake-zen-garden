@@ -1,0 +1,14 @@
+.detailContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.detailContainer tr td {
+  padding: 4px 16px 4px 4px;
+}
+.heading {
+  font-size: 20px;
+  margin-block-start: 16px;
+  margin-block-end: 16px;
+  font-weight: bold;
+}

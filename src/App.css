@@ -127,27 +127,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-/*--- App ---*/
-
 body {
   font-family: sans-serif;
-}
-ul {
-  padding: 0;
-}
-.text-center {
-  text-align: center;
-}
-.valign-top {
-  vertical-align: top;
-}
-h3 {
-  display: block;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
 }

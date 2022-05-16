@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
-// TODO: Absolute path (alias)
-import Navbar from './components/navbar/navbar'
+import Navbar from 'Components/navbar'
 import './App.css'
+
 import { EarthquakeContext } from './context'
 
 export const TIME_FORMAT = 'MMM DD, YYYY, HH:MM A'
@@ -13,7 +13,7 @@ export const App = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await fetch('data.json')
+        const data = await fetch('/data.json')
         const jsonData = await data.json()
         setAppData(jsonData)
       } catch (e) {
@@ -33,13 +33,12 @@ export const App = () => {
 
   return (
     <>
-      {
-        <Navbar
-          title={title}
-          logoImage={logoImage}
-          firstName={profile?.firstName}
-        />
-      }
+      <Navbar
+        title={title}
+        logoImage={logoImage}
+        firstName={profile?.firstName}
+      />
+
       <EarthquakeContext.Provider value={appData}>
         <Outlet />
       </EarthquakeContext.Provider>

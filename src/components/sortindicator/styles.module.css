@@ -1,0 +1,15 @@
+.upTriangle {
+  display: inline-block;
+  margin-left: 4px;
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.downTriangle {
+  margin-left: 4px;
+  display: inline-block;
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+}

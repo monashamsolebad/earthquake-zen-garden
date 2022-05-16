@@ -1,31 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import styles from './styles.module.css'
 const Navbar = (props) => {
   const { title, logoImage, firstName } = props
   return (
-    <div className="navbar">
-      <ul className="flex-container">
+    <div className={styles.navbar}>
+      <ul className={styles.flexContainer}>
         {logoImage && (
           <li>
             <Link to="/">
               <img
                 src={logoImage}
                 alt="Realtor logo"
-                className="logo"
+                className={styles.logo}
                 tabIndex={1}
               ></img>
             </Link>
           </li>
         )}
         {title && (
-          <div className="navbar-title" tabIndex={2}>
+          <div className={styles.navbarTitle} tabIndex={-1}>
             {title}
           </div>
         )}
         {firstName && (
           <li>
-            <Link to="/profile" tabIndex={3}>
+            <Link to="/profile" tabIndex={2}>
               Welcome {firstName}
             </Link>
           </li>
@@ -34,4 +34,5 @@ const Navbar = (props) => {
     </div>
   )
 }
+
 export default Navbar

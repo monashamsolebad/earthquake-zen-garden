@@ -1,37 +1,56 @@
-const path = require("path");
+const path = require('path')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  mode: "development",
-  entry: "./index.js",
+  mode: 'development',
+  entry: './index.js',
   output: {
-    path: path.resolve(__dirname, "output"),
-    filename: "main.js",
+    path: path.resolve(__dirname, 'output'),
+    filename: 'main.js',
   },
-
-  // TODO: Copy everything in the public folder to the output folder
-
-  target: "web",
+  target: 'web',
   devServer: {
-    port: "3001",
-    static: ["./public"],
+    port: '3001',
+    static: ['./public'],
     open: true,
     hot: true,
     liveReload: true,
+    historyApiFallback: true,
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: 'public', to: '.' }],
+    }),
+  ],
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".ts"],
-  },  
+    extensions: ['.js', '.jsx', '.json', '.ts'],
+    alias: {
+      Components: path.resolve(__dirname, 'src/components/'),
+      Pages: path.resolve(__dirname, 'src/pages/'),
+      Src: path.resolve(__dirname, 'src/'),
+    },
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        use: 'babel-loader',
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+        ],
       },
     ],
   },
-};
+}

@@ -1,16 +1,19 @@
 import React, { useContext } from 'react'
-import './profile.css'
-import { EarthquakeContext } from '../context'
+import styles from './styles.module.css'
+import { EarthquakeContext } from 'Src/context'
 const Profile = () => {
   const context = useContext(EarthquakeContext)
   const { profile } = context || {}
+  if (!profile) {
+    return <div>Loading...</div>
+  }
   return (
-    <div className="profile-container">
-      <h3>Profile</h3>
-      <div className="data-container">
+    <div className={styles.profileContainer}>
+      <h3 className={styles.heading}>Profile</h3>
+      <div className={styles.dataContainer}>
         <div>
           <img
-            className="profile-image"
+            className={styles.profileImage}
             src={profile?.avatarImage}
             alt="profile image"
           ></img>
@@ -35,8 +38,8 @@ const Profile = () => {
                 <td>{profile?.email}</td>
               </tr>
               <tr>
-                <td className="valign-top">Bio</td>
-                <td className="bio">{profile?.bio}</td>
+                <td className={styles.bioTitle}>Bio</td>
+                <td className={styles.bio}>{profile?.bio}</td>
               </tr>
             </tbody>
           </table>

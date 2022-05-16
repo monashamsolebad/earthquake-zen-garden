@@ -10,3 +10,12 @@
 .home thead th {
   cursor: pointer;
 }
+.center {
+  text-align: center;
+}
+.heading {
+  font-size: 20px;
+  margin-block-start: 16px;
+  margin-block-end: 16px;
+  font-weight: bold;
+}

@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import './detail.css'
-import { EarthquakeContext } from '../context'
+import styles from './styles.module.css'
+import { EarthquakeContext } from 'Src/context'
 const Detail = () => {
   const [feature, setFeature] = useState(null)
   const { id } = useParams()
   const context = useContext(EarthquakeContext)
   const { data } = context || {}
-
   useEffect(() => {
     const getFeatureById = (features, id) => {
       const feature = features.find((item) => {
@@ -22,8 +21,8 @@ const Detail = () => {
     return <div>Loading...</div>
   }
   return (
-    <div className="detail-container">
-      <h3>{feature?.properties?.title}</h3>
+    <div className={styles.detailContainer}>
+      <h3 className={styles.heading}>{feature?.properties?.title}</h3>
       <div>
         <table>
           <tbody>
@@ -57,4 +56,5 @@ const Detail = () => {
     </div>
   )
 }
+
 export default Detail

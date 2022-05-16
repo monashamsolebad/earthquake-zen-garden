@@ -1,22 +1,31 @@
-.profile-container {
+.profileContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.profile-image {
+.profileImage {
   width: 200px;
   height: auto;
 }
 .bio {
   width: 248px;
 }
-.data-container {
+.bio {
+  vertical-align: top;
+}
+.dataContainer {
   display: flex;
   justify-content: center;
   flex-direction: row;
   gap: 8px;
 }
-.data-container tr td {
+.dataContainer tr td {
   padding: 4px 16px 4px 4px;
+}
+.heading {
+  font-size: 20px;
+  margin-block-start: 16px;
+  margin-block-end: 16px;
+  font-weight: bold;
 }
