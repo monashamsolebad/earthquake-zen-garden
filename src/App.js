@@ -1,33 +1,48 @@
-import React, { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-import Navbar from "./components/navbar/navbar";
-import "./App.css";
+import React, { useEffect, useState } from 'react'
+import { Outlet } from 'react-router-dom'
+// TODO: Absolute path (alias)
+import Navbar from './components/navbar/navbar'
+import './App.css'
+import { EarthquakeContext } from './context'
 
-export default function App() {
+export const TIME_FORMAT = 'MMM DD, YYYY, HH:MM A'
 
-  const [data, setData] = useState(null);
-  const getData = () => {
-    fetch("data.json").then(
-      function (res) {
-        return res.json();
-      }).then(function (data) {
-        //console.log(data)
-        setData(data)
-      }).catch(
-        function (err) {
-          console.log(err, ' error')
-        }
-      )
-  }
+export const App = () => {
+  const [appData, setAppData] = useState(null)
+
   useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await fetch('data.json')
+        const jsonData = await data.json()
+        setAppData(jsonData)
+      } catch (e) {
+        console.log('error -->', e)
+      }
+    }
+
     getData()
   }, [])
 
-  return (
-    <div>
-      {<Navbar title={data?.site?.title} logoImage={data?.site?.logoImage} firstName={data?.profile?.firstName}/>}
+  const { site, profile } = appData || {}
+  const { title, logoImage } = site || {}
 
-      <Outlet />
-    </div>
-  );
+  if (!appData) {
+    return <div>Loading...</div>
+  }
+
+  return (
+    <>
+      {
+        <Navbar
+          title={title}
+          logoImage={logoImage}
+          firstName={profile?.firstName}
+        />
+      }
+      <EarthquakeContext.Provider value={appData}>
+        <Outlet />
+      </EarthquakeContext.Provider>
+    </>
+  )
 }

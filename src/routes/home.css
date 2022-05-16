@@ -1,5 +1,12 @@
-.home-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home tr td,
+.home tr th {
+  padding: 4px;
+}
+.home thead th {
+  cursor: pointer;
 }

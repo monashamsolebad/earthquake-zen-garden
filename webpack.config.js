@@ -4,9 +4,11 @@ module.exports = {
   mode: "development",
   entry: "./index.js",
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "output"),
     filename: "main.js",
   },
+
+  // TODO: Copy everything in the public folder to the output folder
 
   target: "web",
   devServer: {
@@ -18,7 +20,7 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts"],
-  },
+  },  
   module: {
     rules: [
       {
