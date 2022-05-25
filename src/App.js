@@ -5,7 +5,7 @@ import './App.css'
 
 import { EarthquakeContext } from './context'
 
-export const TIME_FORMAT = 'MMM DD, YYYY, HH:MM A'
+export const TIME_FORMAT = 'MMM DD, YYYY, HH:mm A'
 
 export const App = () => {
   const [appData, setAppData] = useState(null)
